@@ -1,21 +1,24 @@
 // src/App.jsx
 import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, createBrowserRouter, RouterProvider } from 'react-router-dom';
 import MainBody from './Components/MainBody';
+import AddProject from './Components/AddProject';
 
 function App() {
+  const appRouter= createBrowserRouter([
+    {
+      path:'/',
+      element:<MainBody/>,
+      children:[
+        {
+          path:'addProject',
+          element:<AddProject/>
+        }
+      ]
+    }
+  ])
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<MainBody />}>
-          <Route
-            index
-            element={<div ></div>}
-          />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <RouterProvider router={appRouter}/>
   );
 }
 
