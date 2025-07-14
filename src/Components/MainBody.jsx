@@ -5,11 +5,13 @@ import Header from "./Header";
 import SideBar from "./SideBar";
 
 const MainBody = () => (
-  <div className="flex">
-    <SideBar />
+  <div className="w-screen h-screen flex flex-col bg-[#D9D9D92E]">
+    <Header />
     <div className="flex flex-1 overflow-hidden">
-      <Header />
-      <div className="pt-16">
+      <div className="flex-shrink-0">
+        <SideBar />
+      </div>
+      <div className="flex-1 overflow-auto pt-16">
         <Outlet />
       </div>
     </div>

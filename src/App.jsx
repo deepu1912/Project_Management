@@ -1,22 +1,27 @@
-// src/App.jsx
-import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import MainBody from './Components/MainBody';
+import React from "react";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import AddProject from "./Components/AddProject";
+import CreateSpaceCard from "./Components/CreateSpaceCard";
+import MainBody from "./Components/MainBody";
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<MainBody />}>
-          <Route
-            index
-            element={<div ></div>}
-          />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  );
+  const appRouter = createBrowserRouter([
+    {
+      path: "/",
+      element: <MainBody />,
+      children: [
+        {
+          path: "createSpace",
+          element: <CreateSpaceCard />,
+        },
+        {
+          path: "addProject",
+          element: <AddProject />,
+        },
+      ],
+    },
+  ]);
+  return <RouterProvider router={appRouter} />;
 }
 
 export default App;
