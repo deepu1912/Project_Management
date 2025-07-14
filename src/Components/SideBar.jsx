@@ -16,7 +16,7 @@ const SideBar = () => {
   ];
 
   return (
-    <div className="mt-16 w-64 h-[calc(100vh-64px)] bg-white border-r shadow-sm flex flex-col">
+    <div className="w-64 h-[100vh] pt-16 bg-white border-r shadow-sm flex flex-col">
       <nav className="flex-1 flex flex-col gap-2 px-4 py-6">
         {links.map(({ name, icon }) => {
           const to = `/${name.toLowerCase()}`;

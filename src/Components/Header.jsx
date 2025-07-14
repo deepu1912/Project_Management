@@ -6,10 +6,7 @@ const Header = () => {
   const navigate = useNavigate();
   return (
     <>
-      <div
-        className="fixed top-0 left-0 w-full bg-white border-b shadow-sm z-50 flex items-center px-[32px] py-[16px] space-x-[32px]"
-        style={{ height: 64 }}
-      >
+      <div className="fixed top-0 left-0 w-full bg-white border-b shadow-sm z-50 flex items-center px-[32px] py-[16px] space-x-[32px]">
         <div className="relative flex-shrink-0 mr-8">
           <div className="text-xl font-semibold">Logo / Project Name</div>
         </div>
